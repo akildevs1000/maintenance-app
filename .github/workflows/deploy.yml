@@ -55,6 +55,9 @@ jobs:
           SSH_PASSWORD: ${{ secrets.SSH_PASSWORD }}
         run: |
           sshpass -p "$SSH_PASSWORD" ssh -o StrictHostKeyChecking=no "$SSH_USERNAME@$SERVER_IP" \
-          'rm -rf /var/www/myhotel2cloud/maintenance-app/*'  # Clear existing site
+          'if [ -d /var/www/myhotel2cloud/maintenance-app ]; then
+             TIMESTAMP=$(date +"%Y%m%d%H%M%S");
+             cp -r /var/www/myhotel2cloud/maintenance-app /var/www/myhotel2cloud/maintenance-app-backup-version-$TIMESTAMP;
+           fi'
 
           sshpass -p "$SSH_PASSWORD" scp -o StrictHostKeyChecking=no -r dist/* "$SSH_USERNAME@$SERVER_IP:/var/www/myhotel2cloud/maintenance-app/"
