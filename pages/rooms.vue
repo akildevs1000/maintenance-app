@@ -23,44 +23,38 @@
       </v-col>
     </v-row>
     <v-row no-gutters>
-      <v-col class="pt-5">
+      <!-- <v-col class="pt-5">
         <AssetsProgressCustom
           v-if="progress"
           :total="progress.total"
           :engaged="progress.engaged"
         />
-      </v-col>
+      </v-col> -->
       <v-col cols="12">
-        <WidgetsVacantRoomCard
-          bgColor="#d9534f"
-          color="white"
-          v-if="tabId == 0"
-          @selectedRoom="handleSelectedRoom"
-          :items="rooms.DirtyRooms"
-        />
-        <WidgetsVacantRoomCard
-          bgColor="#ddbc91"
-          color="black"
-          v-if="tabId == 1"
-          @selectedRoom="handleSelectedRoom"
-          :items="rooms.Occupied"
-        />
-        <WidgetsVacantRoomCard
-          bgColor="#f5ece3"
-          color="black"
-          v-if="tabId == 2"
-          @selectedRoom="handleSelectedRoom"
-          :items="rooms.vacantRooms"
-        />
-        <WidgetsVacantRoomCard
-          bgColor="#75a29f"
-          color="white"
-          v-if="tabId == 3"
-          @selectedRoom="handleSelectedRoom"
-          :items="rooms.blockedRooms"
-        />
+        <div class="mt-10 text-centers">
+          <WidgetsVacantRoomCard
+            bgColor="#d9534f"
+            color="white"
+            :items="rooms.DirtyRooms"
+          />
+          <WidgetsVacantRoomCard
+            bgColor="#ddbc91"
+            color="black"
+            :items="rooms.Occupied"
+          />
+          <WidgetsVacantRoomCard
+            bgColor="#f5ece3"
+            color="black"
+            :items="rooms.vacantRooms"
+          />
+          <WidgetsVacantRoomCard
+            bgColor="#75a29f"
+            color="white"
+            :items="rooms.blockedRooms"
+          />
+        </div>
       </v-col>
-      <v-col cols="8">
+      <!-- <v-col cols="8">
         <v-card
           class="pa-3"
           outlined
@@ -149,7 +143,7 @@
             <v-img v-if="isStop" @click="stop" src="/stop.png"></v-img>
           </v-avatar>
         </div>
-      </v-col>
+      </v-col> -->
     </v-row>
     <!-- <v-row>
       <v-col>

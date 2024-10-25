@@ -1,9 +1,6 @@
 <template>
   <v-container fluid>
     <v-row>
-      <v-col cols="12" class="text-right">
-        <v-icon color="black" @click="room_list">mdi-reload</v-icon>
-      </v-col>
       <v-col cols="6" v-for="(bigCard, index) in bigCards" :key="index">
         <v-card
           class="pa-4"
@@ -25,24 +22,9 @@
           </v-row>
         </v-card>
       </v-col>
-      <!-- <v-col cols="6">
-        <v-card
-          class="pa-4"
-          style="border-radius: 10px; border: 1px solid #e97171"
-          outlined
-        >
-          <v-row align="center" no-gutters>
-            <v-col cols="6">
-              <v-icon color="#e97171" size="30"
-                >mdi-emoticon-sad-outline</v-icon
-              >
-            </v-col>
-            <v-col class="text-right" cols="6">
-              <div><strong>45</strong>/<small>65</small></div>
-            </v-col>
-          </v-row>
-        </v-card>
-      </v-col> -->
+      <v-col cols="12" class="text-left py-0 my-0">
+        <v-icon color="black" @click="room_list">mdi-reload</v-icon>
+      </v-col>
       <v-col>
         <AssetsTable height="500" :headers="headers" :items="data">
           <template #date_time="{ item }">

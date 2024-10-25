@@ -114,10 +114,10 @@
         </v-col>
         <!-- Left side with location and date -->
         <v-col class="text-center">
-          <v-icon color="#968f9f">mdi-home</v-icon>
+          <v-icon color="#968f9f" @click="$router.push(`/`)">mdi-home</v-icon>
         </v-col>
         <v-col class="text-center">
-          <v-icon color="#b8afaa" to="/cleaning">mdi-bed</v-icon>
+          <v-icon color="#b8afaa" @click="$router.push(`/rooms`)">mdi-bed</v-icon>
         </v-col>
         <v-col class="text-center">
           <v-icon color="#cfbeb4">mdi-cash-multiple</v-icon>
