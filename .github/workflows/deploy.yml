@@ -25,4 +25,4 @@ jobs:
           sshpass -p "$SSH_PASSWORD" ssh -o StrictHostKeyChecking=no "$SSH_USERNAME@$SERVER_IP" \
           'rm -rf /var/www/myhotel2cloud/maintenance-app/*'  # Clear existing site
 
-          sshpass -p "$SSH_PASSWORD" scp -o StrictHostKeyChecking=no -r ./ "$SSH_USERNAME@$SERVER_IP:/var/www/myhotel2cloud/maintenance-app/"
+          sshpass -p "$SSH_PASSWORD" scp -o StrictHostKeyChecking=no -r * "$SSH_USERNAME@$SERVER_IP:/var/www/myhotel2cloud/maintenance-app/"
