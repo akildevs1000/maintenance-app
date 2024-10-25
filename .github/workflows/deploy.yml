@@ -42,6 +42,9 @@ jobs:
              mv /var/www/myhotel2cloud/maintenance-app /var/www/myhotel2cloud/maintenance-app-version-$TIMESTAMP;
            fi'
 
+          # Create the target directory if it doesn't exist
+           mkdir -p /var/www/myhotel2cloud/maintenance-app'
+
           # Upload the new files
           sshpass -p "$SSH_PASSWORD" scp -o StrictHostKeyChecking=no -r dist/* "$SSH_USERNAME@$SERVER_IP:/var/www/myhotel2cloud/maintenance-app/"
 
