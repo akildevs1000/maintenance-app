@@ -29,32 +29,32 @@ jobs:
       - name: Install SSH client
         run: sudo apt-get install -y sshpass
 
-      - name: Deploy to DigitalOcean
-        env:
-          SERVER_IP: ${{ secrets.SERVER_IP }}
-          SSH_USERNAME: ${{ secrets.SSH_USERNAME }}
-          SSH_PASSWORD: ${{ secrets.SSH_PASSWORD }}
-        run: |
-          # Move existing files to a versioned folder
-          sshpass -p "$SSH_PASSWORD" ssh -o StrictHostKeyChecking=no "$SSH_USERNAME@$SERVER_IP" \
-          'if [ -d /var/www/myhotel2cloud/maintenance-app ]; then
-             TIMESTAMP=$(date +"%Y%m%d%H%M%S");
-             mv /var/www/myhotel2cloud/maintenance-app /var/www/myhotel2cloud/maintenance-app-version-$TIMESTAMP;
-           fi'
-
-          # Create the target directory if it doesn't exist
-           mkdir -p /var/www/myhotel2cloud/maintenance-app'
-
-          # Upload the new files
-          sshpass -p "$SSH_PASSWORD" scp -o StrictHostKeyChecking=no -r dist/* "$SSH_USERNAME@$SERVER_IP:/var/www/myhotel2cloud/maintenance-app/"
-
       # - name: Deploy to DigitalOcean
       #   env:
       #     SERVER_IP: ${{ secrets.SERVER_IP }}
       #     SSH_USERNAME: ${{ secrets.SSH_USERNAME }}
       #     SSH_PASSWORD: ${{ secrets.SSH_PASSWORD }}
       #   run: |
+      #     # Move existing files to a versioned folder
       #     sshpass -p "$SSH_PASSWORD" ssh -o StrictHostKeyChecking=no "$SSH_USERNAME@$SERVER_IP" \
-      #     'rm -rf /var/www/myhotel2cloud/maintenance-app/*'  # Clear existing site
+      #     'if [ -d /var/www/myhotel2cloud/maintenance-app ]; then
+      #        TIMESTAMP=$(date +"%Y%m%d%H%M%S");
+      #        mv /var/www/myhotel2cloud/maintenance-app /var/www/myhotel2cloud/maintenance-app-version-$TIMESTAMP;
+      #      fi'
 
+      #     # Create the target directory if it doesn't exist
+      #      mkdir -p /var/www/myhotel2cloud/maintenance-app'
+
+      #     # Upload the new files
       #     sshpass -p "$SSH_PASSWORD" scp -o StrictHostKeyChecking=no -r dist/* "$SSH_USERNAME@$SERVER_IP:/var/www/myhotel2cloud/maintenance-app/"
+
+      - name: Deploy to DigitalOcean
+        env:
+          SERVER_IP: ${{ secrets.SERVER_IP }}
+          SSH_USERNAME: ${{ secrets.SSH_USERNAME }}
+          SSH_PASSWORD: ${{ secrets.SSH_PASSWORD }}
+        run: |
+          sshpass -p "$SSH_PASSWORD" ssh -o StrictHostKeyChecking=no "$SSH_USERNAME@$SERVER_IP" \
+          'rm -rf /var/www/myhotel2cloud/maintenance-app/*'  # Clear existing site
+
+          sshpass -p "$SSH_PASSWORD" scp -o StrictHostKeyChecking=no -r dist/* "$SSH_USERNAME@$SERVER_IP:/var/www/myhotel2cloud/maintenance-app/"
