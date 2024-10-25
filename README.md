@@ -1,22 +1,24 @@
-# maintenance-app
+Versions 1.0.0
+--------------
 
-server {
+Installation Guide:
+  - clone repo
+  - npm i
+  - set env variables
+      - LOCAL_IP=192.168.2.174
+      - LOCAL_PORT=3000
+      - BACKEND_URL=http://localhost:8000/api
+      - SOCKET_ENDPOINT=web socket endpoint
+      - Hash=you hash
+  - npm run dev (dev environment)
+  - npm run build && npm run start (production environment)
+  - pm2 start "npm run start" --name "Nuxt"
 
-	server_name your_domain.com;
 
-	root /var/www/your-app;
-    index index.html;
 
-    location / {
-        try_files $uri $uri/ @rewrites;
-    }
+  BACKEND_URL=http://192.168.2.210:8000/api/
 
-    location @rewrites {
-        rewrite ^(.+)$ /index.html last;
-    }
+Testing Test
 
-    location ~* \.(jpg|jpeg|gif|png|PNG|ico)$ {
-        root /var/www/your-app;
-    }
-}
- 
+$ npm install vue2-datepicker --save
+
