@@ -77,6 +77,7 @@ export default {
           attachment: this.payload,
         });
         alert(`Voice note Uploaded`);
+        this.$emit(`response`);
         this.dialog = false;
       } catch (error) {
         console.log(error);

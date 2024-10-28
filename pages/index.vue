@@ -57,11 +57,17 @@
               :src="item.after_attachment"
             />
             <span v-else>
-              <RoomCleaningAfterUploadPopup :item="item" />
+              <RoomCleaningAfterUploadPopup
+                @response="getDataFromApi"
+                :item="item"
+              />
             </span>
           </template>
           <template #options="{ item }">
-            <RoomCleaningVoiceUploadPopup :item="item" />
+            <RoomCleaningVoiceUploadPopup
+              @response="getDataFromApi"
+              :item="item"
+            />
             <RoomCleaningSingle :item="item" />
           </template>
         </AssetsTable>

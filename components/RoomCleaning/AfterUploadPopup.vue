@@ -9,7 +9,7 @@
 
     <v-card v-if="item && item.id">
       <v-alert class="grey lighten-3" dense flat>
-        <span>Details</span>
+        <span>Upload After Attachment</span>
       </v-alert>
 
       <v-card-text>
@@ -84,6 +84,7 @@ export default {
           attachment: this.payload,
         });
         alert(`Attachment Uploaded`);
+        this.$emit(`response`);
         this.dialog = false;
       } catch (error) {
         console.log(error);
