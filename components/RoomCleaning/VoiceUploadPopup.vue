@@ -9,7 +9,7 @@
 
     <v-card v-if="item && item.id">
       <v-alert class="grey lighten-3" dense flat>
-        <span>Details</span>
+        <span>Upload Voice Note</span>
       </v-alert>
 
       <v-card-text>
