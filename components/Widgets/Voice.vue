@@ -20,16 +20,12 @@
         border-radius: 50px;
         animation: pulse 1s infinite;
       }
-
-       {
-      }
     </style>
-    <v-icon small @click="startRecording" color="primary" v-if="!isRecording"
+    <v-icon @click="startRecording" color="primary" v-if="!isRecording"
       >mdi-microphone-outline</v-icon
     >
 
     <v-icon
-      small
       :class="`${isRecording ? 'recording-active' : ''}`"
       @click="stopRecording"
       color="primary"
@@ -37,7 +33,7 @@
       >mdi-microphone-outline</v-icon
     >
 
-    <v-icon small @click="playRecording" v-if="recordedBlob" color="success"
+    <v-icon @click="playRecording" v-if="recordedBlob" color="success"
       >mdi-play-circle-outline</v-icon
     >
     <audio
