@@ -49,11 +49,16 @@
             <span v-else>---</span>
           </template>
           <template #after_attachment="{ item }">
-            <ImageView
+            <WidgetsViewTempFile
+              :label="``"
+              :key="item.after_attachment"
+              icon="mdi-eye-outline"
               v-if="item.after_attachment"
               :src="item.after_attachment"
             />
-            <span v-else>---</span>
+            <span v-else>
+              <RoomCleaningAfterUploadPopup :item="item" />
+            </span>
           </template>
           <template #options="{ item }">
             <RoomCleaningSingle :item="item" />
