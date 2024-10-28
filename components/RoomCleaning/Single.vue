@@ -81,12 +81,24 @@
             ></v-text-field>
           </v-col>
           <v-col v-if="item.voice_note" cols="12">
+            <div>Voice (House Keeping)</div>
             <audio
               v-if="item.voice_note"
               controls
               style="width: 100%; height: 40px"
             >
               <source :src="item.voice_note" />
+            </audio>
+            <span v-else>---</span>
+          </v-col>
+          <v-col v-if="item.voice_note" cols="12">
+            <div>Voice (Technician)</div>
+            <audio
+              v-if="item.maintenance_voice_note"
+              controls
+              style="width: 100%; height: 40px"
+            >
+              <source :src="item.maintenance_voice_note" />
             </audio>
             <span v-else>---</span>
           </v-col>

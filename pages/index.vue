@@ -61,6 +61,7 @@
             </span>
           </template>
           <template #options="{ item }">
+            <RoomCleaningVoiceUploadPopup :item="item" />
             <RoomCleaningSingle :item="item" />
           </template>
         </AssetsTable>

@@ -76,7 +76,7 @@ export default {
           attachment_name: this.fileName,
           attachment: this.payload,
         });
-        alert(`Attachment Uploaded`);
+        alert(`Voice note Uploaded`);
         this.dialog = false;
       } catch (error) {
         console.log(error);
